@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Best Place</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+  <!--keep up one-->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="css/mycss.css">
+  <link rel="stylesheet" href="css/slider.css">
+
+</head>
+<body>
+    <header class="top-header ">
+		<nav class="top-nav">
+			<ul>
+				<a src=" #">BestPlace</a>
+				<a href="https://www.cpp.edu/~renronghuang/">Contact</a>			
+				
+			</ul>
+		</nav>
+        <div class="keyterm-container">
+            
+             <input type="text" placeholder="Search.." name="keyterm" id="keyterm"/>
+            <button class="keyterm-btn" type="submit"><i class="fa fa-search"></i></button>
+        </div>
+        
+        <span class="welcome-msg">Welcome</span>
+        <a id="logout-link" href="logout">Logout</a>
+		<i id="avatar" class="avatar fa fa-user fa-2x"></i>
+
+		
+    </header>
+    <div class="login_form"> 
+                <input type="text" placeholder="enter username" id="username" /><br/>
+                <input type="password" placeholder="enter password" id="password" /><br/>
+                <p id="error-msg"></p>
+                <button type="submit" class="login" id="register" ><a href="register.html">Register</a></button>
+                <button type="submit" class="login" id="login_btn">Login</button><br/><br/><br/>
+                <p> Log in to get more information</p>
+    </div>
+    <div class="container ">
+		<header class="slider">
+			<div class="slide-viewer">
+                <p class="header-name">Best Place</p>
+                <div class="slide-group">
+                    
+                    <div class="slide slide-1">  
+                        <img src="images/slide-1.jpg" alt="myEvent1" />
+                    </div>
+                    <div class="slide slide-2">
+                        <img src="images/slide-2.jpg" alt="myEvent2"  />
+                    </div>
+                        <div class="slide slide-3">
+                        <img src="images/slide-3.jpg" alt="myEvent3"  />
+                    </div>
+                    <div class="slide slide-4">
+                        <img src="images/slide-4.jpg" alt="myEvent4"  />
+                    </div>
+                <div class="slide-buttons"></div>
+                </div>
+                
+            </div>
+            
+	    </header>
+		<section class="main-section">
+			<aside>
+                <div class="nav-icon">
+					<i class="fas fa-balance-scale fa-2x"></i>
+				</div>
+				<nav>
+					<ul>
+						<li><a id="nearby-btn" class="main-nav-btn active"  href="#">
+                            <i class="fas fa-child"></i> Nearby</a>
+                        </li>
+						<li><a id="fav-btn" class="main-nav-btn"   href="#">
+                            <i class="fas fa-cannabis"></i> My Favorites</a>
+                        </li>
+						<li><a id="recommend-btn" class="main-nav-btn" href="#">
+                            <i class="fas fa-crown"></i> Recommendation</a>
+                            
+                        </li>
+                        <li>
+                            <div id="refine-btn" class="main-nav-btn">
+                                <div class="refine-radius"><i class="fas fa-clipboard"></i> Refine Radius</div>
+                                <div class="radius">
+                                   <a id="radius10" href="#">10 miles</a>
+                                   <a id="radius25" href="#">25 miles</a>
+                                   <a id="radius60" href="#">60 miles</a>
+                                   <a id="radius100" href="#">100 miles</a>
+                     
+                                </div>
+                            </div>
+                        </li>
+                       
+					</ul>
+				</nav>
+			</aside>
+			
+			<ul class="item-list" id="item-list">
+				<li class="item">
+					<img src="images/event.jpg"
+					     alt="event"/>
+					<div class="item-name-container">
+						<a class="item-name">Title</a>
+                        <p class="item-address">123 Example Ave<br/>
+					      Pomona, CA 91234
+                        </p>
+                        <p class="dates">11-25-2018</p>
+					</div>
+                    <div class="item-category">Category: Sports<br/>
+                       </div>
+					<div class="distance">Distance:<br/>10 miles </div>
+					<div class="fav-link">
+					<i class="fas fa-heart"></i>
+					</div>
+				</li>
+				
+			</ul>
+		</section>
+	</div>
+	
+	<footer>
+		<ul>
+			<li>
+				<p><i class="fas fa-landmark fa-2x"></i></p>
+		        <p>Pomona, CA</p>
+			</li>
+            <li >
+                <p><i class="fas fa-crown fa-2x"></i><br/>Find The <span class="best_footer">Best Place</span> Around You!</p>
+            </li>
+			<li>
+				<p><i class="far fa-envelope fa-2x"></i></p>
+		        <p>renronghuang@cpp.edu</p>
+			</li>
+			
+		</ul>
+	</footer>
+	<script src="https://rawgit.com/emn178/js-md5/master/build/md5.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
+    <script type="text/javascript" src="js/main_script.js"></script>
+	
+</body>
+</html>
