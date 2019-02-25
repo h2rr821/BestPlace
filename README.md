@@ -8,4 +8,6 @@ The recommended event will have the similar attributes:
      2. same month
      3. within the radius of distance
      
-                                
+Register user can input keyword and refine the radius of the search event.
+ 
+DEMO: http://54.193.81.49:8080/BestPlace/
