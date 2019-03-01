@@ -224,10 +224,10 @@ public class MySQLConnection {
 	
 	
 	
-	public List<Item> searchItems(double lat, double lon, String keyword, String radius){
+	public List<Item> searchItems(double lat, double lon, String keyword, String radius, boolean sortByDate, boolean sortByDistance){
 		
 		TicketMasterAPI ticketMasterAPI= new TicketMasterAPI();
-		List<Item> items=ticketMasterAPI.search(lat, lon, keyword, radius);
+		List<Item> items=ticketMasterAPI.search(lat, lon, keyword, radius, sortByDate, sortByDistance);
 		//System.out.println("try to save data to db");
 		for(Item item:items) {
 			

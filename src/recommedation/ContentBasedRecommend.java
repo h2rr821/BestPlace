@@ -1,7 +1,9 @@
 package recommedation;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -74,7 +76,7 @@ public class ContentBasedRecommend {
 		return month;
 	}
 	
-	public List<Item> recommendItems(String userId, double lat, double lon){
+	public List<Item> recommendItems(String userId, double lat, double lon, boolean sortByDate, boolean sortByDistance){
 		
 		List<Item> recommendedItems = new ArrayList<>();
 	    MySQLConnection connection=new MySQLConnection();
@@ -115,7 +117,7 @@ public class ContentBasedRecommend {
 			Set<Item> visitedItems = new HashSet<>();
 			List<Item> filteredItems = new ArrayList<>();
 			for (Entry<String, Integer> recKey : recommendList) {
-				List<Item> items = connection.searchItems(lat, lon, recKey.getKey(), recKey.getValue().toString());
+				List<Item> items = connection.searchItems(lat, lon, recKey.getKey(), recKey.getValue().toString(),false,false);
 				System.out.println("search: " +recKey.getKey()+" -- "+ recKey.getValue());
 				
 				for (Item item : items) {
@@ -129,11 +131,40 @@ public class ContentBasedRecommend {
 				
 			}
 			
-			//sort the all recommendItem by distance
+		if(sortByDistance) {
+			//sort all recommendItem by distance
 			Collections.sort(filteredItems, (Item item1, Item item2) -> {
 				return Double.compare(item1.getDistance(), item2.getDistance());
 			});
-			recommendedItems.addAll(filteredItems);
+			
+		}	
+			
+		 if(sortByDate) {
+			//sort all recommendItem by date
+			Collections.sort(filteredItems, new Comparator<Item>() {
+				
+				LocalDate d1;
+				LocalDate d2;
+			
+				@Override
+				public int compare(Item o1, Item o2) {
+				
+						d1=LocalDate.parse(o1.getDate());
+						d2=LocalDate.parse(o2.getDate());
+						if(d1.isBefore(d2))
+						{
+							return -1;
+						}
+						else {
+					
+							return 1;
+						}
+					}		
+				});
+			}
+		 
+		 
+		    recommendedItems.addAll(filteredItems);
 		}
 		finally {
 			connection.close();

@@ -53,15 +53,17 @@ public class UserSearchItem extends HttpServlet {
 		String keyword=request.getParameter("keyword");
 		String userId = request.getParameter("user_id");
 		String radius = request.getParameter("radius");
+		boolean sortByDate = Boolean.parseBoolean(request.getParameter("sortByDate"));
+		boolean sortByDistance = Boolean.parseBoolean(request.getParameter("sortByDistance"));
 		
 		System.out.println("servicelet keyword-->"+keyword);
-		
+		System.out.println("UsersearchItem");
 		MySQLConnection connection=new MySQLConnection();
 		
 		try {
 			
 			//System.out.println("searchItem function");
-			List<Item> items=connection.searchItems(lat, lon, keyword, radius);
+			List<Item> items=connection.searchItems(lat, lon, keyword, radius, sortByDate,sortByDistance);
 			Set<String> favoriteItems = connection.getFavoriteItemIds(userId);
 			
 			JSONArray array=new JSONArray();
