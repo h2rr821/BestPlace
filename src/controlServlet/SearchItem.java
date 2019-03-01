@@ -45,9 +45,11 @@ public class SearchItem extends HttpServlet {
 		double lat=Double.parseDouble(request.getParameter("lat"));
 		double lon=Double.parseDouble(request.getParameter("lon"));
 		String keyword=request.getParameter("keyword");
+		//boolean sortByDate = Boolean.parseBoolean(request.getParameter("sortByDate"));
+		//boolean sortByDistance = Boolean.parseBoolean(request.getParameter("sortByDistance"));
 		
 		System.out.println("servicelet keyword-->"+keyword);
-		
+		System.out.println("searchItem");
 		MySQLConnection connection=new MySQLConnection();
 		
 		try {
@@ -57,7 +59,7 @@ public class SearchItem extends HttpServlet {
 			// Set session to expire in 1 minutes.
 			session.setMaxInactiveInterval(1* 60);
 			//System.out.println("searchItem function");
-			List<Item> items=connection.searchItems(lat, lon, keyword, null);
+			List<Item> items=connection.searchItems(lat, lon, keyword, null, false, true);
 			for(Item item:items) {
 				
 				//System.out.println("inside servlet: "+item);

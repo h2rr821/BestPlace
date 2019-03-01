@@ -45,10 +45,12 @@ public class UserRecommendation extends HttpServlet {
 		String userId = request.getParameter("user_id");
 		double lat = Double.parseDouble(request.getParameter("lat"));
 		double lon = Double.parseDouble(request.getParameter("lon"));
+		boolean sortByDate = Boolean.parseBoolean(request.getParameter("sortByDate"));
+		boolean sortByDistance = Boolean.parseBoolean(request.getParameter("sortByDistance"));
 		
 		ContentBasedRecommend recommendation=new ContentBasedRecommend();
 		
-		List<Item> items=recommendation.recommendItems(userId, lat, lon);
+		List<Item> items=recommendation.recommendItems(userId, lat, lon, sortByDate, sortByDistance);
 		
 		JSONArray result = new JSONArray();
 		try {

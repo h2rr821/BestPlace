@@ -100,7 +100,7 @@ public class FavoriteHistory extends HttpServlet {
 		System.out.println("try to set fav");
 		try {
 			 
-			JSONObject obj = new JSONObject();
+			 JSONObject obj = new JSONObject();
 			 JSONObject setfav = ControlHelper.readJSONObject(request);
 	   		 String userId = setfav.getString("user_id");
 	   		 List<String> itemIds = new ArrayList<>();

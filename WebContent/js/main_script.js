@@ -16,7 +16,7 @@
         event.preventDefault(); // No need to `return false;`.
     });
     
-    
+
     
     document.querySelector("#login_btn").addEventListener("click",logInCheck, false);
 
@@ -25,6 +25,8 @@
     	
     	this.user_id=user_id;
     	this.radius=radius;
+    	this.sortByDistance=false;
+    	this.sortByDate=false;
     	
     }
 
@@ -109,7 +111,39 @@
                 document.querySelector(".keyterm-btn").addEventListener("click",userLoadNearBy, false);	
                 document.querySelector("#nearby-btn").addEventListener("click", userLoadNearBy, false);
                 document.querySelector("#recommend-btn").addEventListener("click", userLoadRecommendedItem, false);
-                userLoadNearBy();
+                
+                document.querySelector("#slct").addEventListener("change",sortedSelect, false);
+                document.querySelector(".select").style.display='block';
+                
+                
+                function sortedSelect()
+                {
+                    var selectSorted=document.getElementById('slct');
+                    var sortedValue=selectSorted.options[selectSorted.selectedIndex].text;
+                    
+                    if(sortedValue==="Choose an option"){
+                        
+                    	 //console.log("sort do nothign");
+                    }
+                    else if(sortedValue==="Sort By Distance"){
+                        
+                        console.log("distance");
+                        user.sortByDistance=true;
+                        user.sortByDate=false;
+                        userLoadNearBy();
+                        
+                    }
+                    else{
+                        
+                        console.log("date");
+                        user.sortByDate=true;
+                        user.sortByDistance=false;
+                        userLoadNearBy();
+                    }
+                   
+                }
+                
+                
                 
                 
                 
@@ -215,6 +249,44 @@
         
         document.getElementById('keyterm').value="";
         
+        //document.querySelector("#slct").addEventListener("change",sortedSelect, false);
+        //document.querySelector(".select").style.display='block';
+        
+        /*
+        function sortedSelect()
+        {
+            var selectSorted=document.getElementById('slct');
+            var sortedValue=selectSorted.options[selectSorted.selectedIndex].text;
+            
+            if(sortedValue==="Choose an option"){
+                
+            	 //console.log("sort do nothign");
+            }
+            else if(sortedValue==="Sort By Distance"){
+                
+                console.log("distance");
+                user.sortByDistance=true;
+                user.sortByDate=false;
+                
+                console.log("loadNearBy");
+                loadNearBy();
+                
+            }
+            else{
+                
+                console.log("date");
+                user.sortByDate=true;
+                user.sortByDistance=false;
+                console.log("loadNearBy");
+                loadNearBy();
+            }
+           
+        }
+        
+        
+        */
+        
+        
        
         //para="lon="+lon+"&lat="+lat+"&keyword="+keyterm;
         para="lon="+lon+"&lat="+lat;
@@ -302,7 +374,7 @@
         
         
         //para="lon="+lon+"&lat="+lat+"&keyword="+keyterm;
-        para='user_id=' + user.user_id+"&lon="+lon+"&lat="+lat+"&keyword="+keyterm+"&radius="+user.radius;
+        para='user_id=' + user.user_id+"&lon="+lon+"&lat="+lat+"&keyword="+keyterm+"&radius="+user.radius+"&sortByDate="+user.sortByDate+"&sortByDistance="+user.sortByDistance;
         
         //console.log(para);
         keyterm="";//clear
@@ -536,7 +608,7 @@
         
         var para="";
         //para="lon="+lon+"&lat="+lat+"&keyword="+keyterm;
-        para='user_id=' + user.user_id+"&lon="+lon+"&lat="+lat;
+        para='user_id=' + user.user_id+"&lon="+lon+"&lat="+lat+"&sortByDate="+user.sortByDate+"&sortByDistance="+user.sortByDistance;
         
         //console.log(para);
         

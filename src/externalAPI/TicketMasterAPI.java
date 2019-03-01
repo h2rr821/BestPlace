@@ -30,10 +30,9 @@ public class TicketMasterAPI {
 	//https://docs.oracle.com/javase/tutorial/networking/urls/readingWriting.html
 	
 	
-	public List<Item> search(double lat, double lon, String keyword, String radius)
+	public List<Item> search(double lat, double lon, String keyword, String radius,boolean sortByDate,boolean sortByDistance)
 	{	
-		boolean sortByDistance=true;
-		boolean sortByDate=false;
+		
 		List<Item> itemList;
 		if(keyword==null) {
 			
@@ -416,7 +415,7 @@ public class TicketMasterAPI {
 		
 		private void queryAPI(double lat, double lon)
 		{
-			List<Item> itemList=search(lat, lon, null, null);
+			List<Item> itemList=search(lat, lon, null, null, false,false);
 			//JSONArray events=search(lat, lon, null);
 		
 			

@@ -250,6 +250,73 @@ button >a{
 	margin-left:5px;
 }
 
+
+/*====================================*/
+
+/* Select sorting*/
+
+select {
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #352762;
+  background-image: none;
+}
+
+/* Custom Select */
+.select {
+  
+  position: fixed;
+  display: none;
+  float:right;
+  top:300px;
+  right:20px;
+  width: 15em;
+  height: 3em;
+  line-height: 3;
+  background: #4B3B77;
+  overflow: hidden;
+  border-radius: .25em;
+  
+}
+
+select {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 .5em;
+  color: #fff;
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em;
+  background: #4B3B77;
+  pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+  color: #CFC7E7;
+}
+.select::after {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
+/*====================================*/
+
 /**
  * main navigation
  */
