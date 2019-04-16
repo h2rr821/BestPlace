@@ -48,8 +48,8 @@ public class SearchItem extends HttpServlet {
 		//boolean sortByDate = Boolean.parseBoolean(request.getParameter("sortByDate"));
 		//boolean sortByDistance = Boolean.parseBoolean(request.getParameter("sortByDistance"));
 		
-		System.out.println("servicelet keyword-->"+keyword);
-		System.out.println("searchItem");
+		
+		
 		MySQLConnection connection=new MySQLConnection();
 		
 		try {

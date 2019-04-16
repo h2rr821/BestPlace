@@ -57,7 +57,7 @@ public class UserSearchItem extends HttpServlet {
 		boolean sortByDistance = Boolean.parseBoolean(request.getParameter("sortByDistance"));
 		
 		System.out.println("servicelet keyword-->"+keyword);
-		System.out.println("UsersearchItem");
+		System.out.println("UsersearchItem: ");
 		MySQLConnection connection=new MySQLConnection();
 		
 		try {

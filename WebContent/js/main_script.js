@@ -76,6 +76,9 @@
                 
                 var refineRadius=document.querySelector('#refine-btn');
                 refineRadius.style.display='inline-block';
+                
+                userLoadNearBy( );
+                
                 document.querySelector("#radius10").addEventListener("click",function(){
                 	
                 	  user.radius=10;
@@ -532,6 +535,8 @@
         // Check whether this item has been visited or not
         var li = document.getElementById('item-'+item_id);
         var favId = document.getElementById('fav-' + item_id);
+        var distance=document.getElementById('distance-'+item_id);
+        var dis=distance.innerHTML;
         var method='';
         if(li.dataset.favorite === 'false'){
             
@@ -542,12 +547,13 @@
             
             method='DELETE';
         }
-
+        //console.log("new distance ", dis);
         // The request parameters
         var url = './history';
         var req = JSON.stringify({
             user_id: user.user_id,
-            favorite: item_id
+            favorite: item_id,
+            distance: dis
         });
         
         
@@ -748,8 +754,14 @@
         //distance======================================
         var distance=document.createElement('div');
         distance.setAttribute('class','distance');
-        distance.innerHTML='Distance:<br/>'+item.distance+" miles";
-        
+        distance.innerHTML='Distance:<br/>';
+        var faDistance=document.createElement('i');
+        faDistance.setAttribute('id','distance-'+item.item_id);
+        faDistance.innerHTML=item.distance;
+        distance.appendChild(faDistance);
+        var mile=document.createElement('i');
+        mile.innerHTML= ' miles';
+        distance.appendChild(mile);
         newLi.appendChild(distance);
         
         /*

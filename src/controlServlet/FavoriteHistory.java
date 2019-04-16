@@ -97,7 +97,7 @@ public class FavoriteHistory extends HttpServlet {
 		}
 		
 		MySQLConnection connection=new MySQLConnection();
-		System.out.println("try to set fav");
+		System.out.println("try to set");
 		try {
 			 
 			 JSONObject obj = new JSONObject();
@@ -106,8 +106,12 @@ public class FavoriteHistory extends HttpServlet {
 	   		 List<String> itemIds = new ArrayList<>();
 	   		 
 	   		 itemIds.add(setfav.getString("favorite"));
-	   		 
-	   		 connection.setFavoriteItems(userId, itemIds);
+	   		 double dis=Double.parseDouble(setfav.getString("distance"));
+	   		 //double dis=12.34;
+	   		 System.out.println("new distance:"+dis);
+	   		 //update the distance
+	   		 //System.out.println("setFav");
+	   		 connection.setFavoriteItems(userId, itemIds, dis);
 	   		 
 	   		 ControlHelper.writeJsonObject(response, obj.put("result", "ok"));
 	   		
