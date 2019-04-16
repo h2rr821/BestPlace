@@ -52,7 +52,7 @@ public class MySQLConnection {
 	}
 	
 	
-	public void setFavoriteItems(String userId, List<String> itemIds) {
+	public void setFavoriteItems(String userId, List<String> itemIds, Double dis) {
 		// TODO Auto-generated method stub
 		if(conn==null)
 		{
@@ -68,6 +68,18 @@ public class MySQLConnection {
 	   			stmt.setString(2, itemId);
 	   			stmt.execute();
 	   		 }
+	   		 
+	   		 System.out.println("try to update distance");
+	   		 //update distance 
+	   		sql = "UPDATE items SET "+"distance=?"+"WHERE item_id=?";
+	   		stmt = conn.prepareStatement(sql);
+	   		stmt.setDouble(1, dis); 
+	   		for (String itemId : itemIds) {
+	   			stmt.setString(2, itemId); 
+	   			stmt.execute();
+	   		}
+	   		 
+	   		 
 	   	 } catch (Exception e) {
 	   		 e.printStackTrace();
 	   	 }
@@ -233,7 +245,9 @@ public class MySQLConnection {
 			
 			//System.out.println(item);
 			saveItems(item);
+			
 		}
+		System.out.println("save");
 		return items;
 	}
 	

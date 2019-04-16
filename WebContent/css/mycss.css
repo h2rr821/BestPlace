@@ -262,6 +262,7 @@ select {
   border: 0 !important;
   background: #352762;
   background-image: none;
+ 
 }
 
 /* Custom Select */
@@ -272,12 +273,13 @@ select {
   float:right;
   top:300px;
   right:20px;
-  width: 15em;
+  width: 12em;
   height: 3em;
   line-height: 3;
   background: #4B3B77;
   overflow: hidden;
   border-radius: .25em;
+   z-index: 1;
   
 }
 
