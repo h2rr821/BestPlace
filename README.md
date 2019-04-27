@@ -19,4 +19,6 @@ DEMO: http://54.193.81.49:8080/BestPlace/
 
 ![Capture2](https://user-images.githubusercontent.com/23129974/56845693-e727fd80-6879-11e9-8dcf-992546c910bf.JPG)
 
+![Capture](https://user-images.githubusercontent.com/23129974/56845694-e98a5780-6879-11e9-9fdc-6d0567be9dd4.JPG)
+
 
