@@ -16,3 +16,7 @@ Register user can log in, then they can search with keyword and refine the radiu
 They also can sort the event by date and by distance.
  
 DEMO: http://54.193.81.49:8080/BestPlace/
+
+![Capture2](https://user-images.githubusercontent.com/23129974/56845693-e727fd80-6879-11e9-8dcf-992546c910bf.JPG)
+
+
